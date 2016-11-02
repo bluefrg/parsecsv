@@ -1,0 +1,23 @@
+{
+  "name": "bluefrg/parsecsv",
+  "description": "Extend PHP's native CSV parsing from the SplFileObject class but provide features to use the first row's values as keys on the remaining rows.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mike Frank",
+      "email": "mike@bluefrog.ca",
+      "homepage": "https://bluefrog.ca/"
+    }
+  ],
+  "autoload": {
+    "psr-4" : {
+      "Bluefrg\\" : "src/Bluefrg/"
+    }
+  },
+  "require": {
+    "php": ">=5.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.6"
+  }
+}
