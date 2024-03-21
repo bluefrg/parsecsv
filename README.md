@@ -1,5 +1,7 @@
 # ParseCsv
 
+> :warning: **This is the old unsupported master branch**: You should not be referencing this branch directly, and it only exists for projects still referencing `dev-master`.
+
 Extend PHP's native CSV parsing from the [SplFileObject](https://secure.php.net/manual/en/class.splfileobject.php) class
  but provide features to use the first row's values as keys on the remaining rows.
 
