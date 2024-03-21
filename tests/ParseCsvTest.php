@@ -1,7 +1,9 @@
 <?php
+declare(strict_types=1);
+
 use Bluefrg\ParseCsv;
 
-class ParseCsvTest extends PHPUnit_Framework_TestCase
+final class ParseCsvTest extends PHPUnit\Framework\TestCase
 {
     const DUMMY_FILE = 'tests/dummyData.csv';
 
@@ -20,7 +22,7 @@ class ParseCsvTest extends PHPUnit_Framework_TestCase
     public function testRowNoKeys()
     {
         $oCsv = new ParseCsv(self::DUMMY_FILE);
-        // We're not using using the first row as the header
+        // We're not using the first row as the header
 
         $aRow = $oCsv->current();
 
