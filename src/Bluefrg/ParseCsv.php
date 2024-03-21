@@ -1,9 +1,11 @@
 <?php
+declare(strict_types=1);
+
 namespace Bluefrg;
 
 class ParseCsv extends \SplFileObject
 {
-    protected $_aHeaders = [];
+    protected array $_aHeaders = [];
 
     public function __construct($sCsvFile)
     {
@@ -17,11 +19,11 @@ class ParseCsv extends \SplFileObject
      * WARNING This will reset the pointer
      * @param bool $bFirstRowHeader
      */
-    public function firstRowHeader($bFirstRowHeader = true)
+    public function firstRowHeader(bool $bFirstRowHeader = true): void
     {
         parent::rewind();
 
-        if ($bFirstRowHeader == true) {
+        if ($bFirstRowHeader === true) {
             $this->_aHeaders = parent::current();
             parent::next();
         }
@@ -34,12 +36,12 @@ class ParseCsv extends \SplFileObject
      * Retrieve an array of header values
      * @return array
      */
-    public function getHeaders()
+    public function getHeaders(): array
     {
         return $this->_aHeaders;
     }
 
-    public function rewind()
+    public function rewind(): void
     {
         parent::rewind();
 
@@ -49,7 +51,7 @@ class ParseCsv extends \SplFileObject
         }
     }
 
-    public function current()
+    public function current(): false|array|string
     {
         if ( count($this->_aHeaders) ) {
             return array_combine($this->_aHeaders, parent::current());
@@ -58,7 +60,7 @@ class ParseCsv extends \SplFileObject
         return parent::current();
     }
 
-    public function seek($iLinePos)
+    public function seek($iLinePos): void
     {
         parent::seek(++$iLinePos);
     }
@@ -68,7 +70,7 @@ class ParseCsv extends \SplFileObject
      * @param string $sCsvBody
      * @return self
      */
-    public static function string($sCsvBody)
+    public static function string(string $sCsvBody): self
     {
         fwrite($rFp = tmpfile(), $sCsvBody);
 
